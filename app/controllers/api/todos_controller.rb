@@ -2,7 +2,7 @@ class Api::TodosController < ApplicationController
   before_action :find_todo, only: [:show, :update, :destroy]
 
   def index
-    todos = Todo.all
+    todos = Todo.all.order created_at: :asc
     render json: todos, status: 200 
   end
 
